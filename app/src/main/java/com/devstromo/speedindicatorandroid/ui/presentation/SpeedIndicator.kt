@@ -23,6 +23,7 @@ fun SpeedIndicator() {
         modifier = Modifier.fillMaxSize()
     ) {
         ExternalArc()
+        Needle()
         Text(
             text = sliderValue.toString(),
             modifier = Modifier.align(Alignment.Center)
