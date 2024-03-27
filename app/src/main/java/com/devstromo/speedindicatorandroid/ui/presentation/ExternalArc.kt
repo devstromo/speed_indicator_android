@@ -13,9 +13,9 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 @Composable
 fun ExternalArc() {
     Canvas(modifier = Modifier.fillMaxSize()) {
-        val arcRadius = 200f
         val canvasWidth = size.width
         val canvasHeight = size.height
+        val arcRadius = size.height * .95f
 
         drawArc(
             color = Color.Red,
