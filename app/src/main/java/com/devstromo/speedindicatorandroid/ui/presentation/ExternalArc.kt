@@ -19,8 +19,8 @@ fun ExternalArc() {
 
         drawArc(
             color = Color.Red,
-            startAngle = -90f, //start angle is always in clockwise direction
-            sweepAngle = 270f, // angle formed between the start angle
+            startAngle = 140f, //start angle is always in clockwise direction
+            sweepAngle = 260f, // angle formed between the start angle
             useCenter = false,
             size = Size(arcRadius, arcRadius),
             topLeft = Offset(
