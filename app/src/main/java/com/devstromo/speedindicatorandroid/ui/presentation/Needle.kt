@@ -13,9 +13,7 @@ import androidx.compose.ui.unit.dp
 fun Needle() {
     Box(
         modifier = Modifier
-            .size(width = 100.dp, height = 50.dp)
-            .background(color = Color.Blue, shape = RoundedCornerShape(10.dp))
-    ) {
-        // Content of the rectangle can be added here
-    }
+            .size(width = 100.dp, height = 10.dp)
+            .background(color = Color.Red, shape = RoundedCornerShape(10.dp))
+    )
 }
