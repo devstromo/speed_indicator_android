@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.devstromo.speedindicatorandroid.ui.presentation.SpeedIndicator
 import com.devstromo.speedindicatorandroid.ui.theme.SpeedIndicatorAndroidTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,27 +31,12 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
 
-@Composable
-fun SpeedIndicator() {
-    BoxWithConstraints(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        Greeting("Android")
-    }
-}
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     SpeedIndicatorAndroidTheme {
-        Greeting("Android")
+        SpeedIndicator()
     }
 }
