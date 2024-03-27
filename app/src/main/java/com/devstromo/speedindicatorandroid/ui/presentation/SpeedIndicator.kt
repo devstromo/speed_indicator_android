@@ -19,6 +19,6 @@ fun SpeedIndicator() {
     BoxWithConstraints(
         modifier = Modifier.fillMaxSize()
     ) {
-        Greeting("Android")
+        ExternalArc()
     }
 }
