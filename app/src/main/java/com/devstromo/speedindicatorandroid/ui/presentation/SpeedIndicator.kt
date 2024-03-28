@@ -40,9 +40,7 @@ fun SpeedIndicator() {
                     this.transformOrigin = TransformOrigin(0f, 0f)
                     this.rotationZ = sliderValue
                 }) {
-            Needle(
-
-            )
+            Needle()
         }
         Text(
             text = sliderValue.toString(),
