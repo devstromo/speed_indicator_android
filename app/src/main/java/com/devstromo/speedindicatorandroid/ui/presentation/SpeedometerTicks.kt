@@ -27,7 +27,6 @@ fun drawSpeedometerTicks(
     val radiusBase = drawScope.drawContext.size.height * .43f
     val innerTickRadius = radiusBase + 40
     val outerTickRadius = radiusBase
-    println("Inner tick radius $innerTickRadius, Outer tick radius $outerTickRadius, Height ${drawScope.drawContext.size.height}, Width ${drawScope.drawContext.size.width}")
     for (i in 0..intervals) {
         val angle = startAngle + (i * angleStep)
         val angleRad = Math.toRadians(angle.toDouble())
