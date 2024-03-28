@@ -24,15 +24,15 @@ fun drawSpeedometerTicks(
     }
     val intervals = 12
     val angleStep = sweepAngle / intervals
-
+    val radiusBase = drawScope.drawContext.size.height * .43f
+    val innerTickRadius = radiusBase + 40
+    val outerTickRadius = radiusBase
+    println("Inner tick radius $innerTickRadius, Outer tick radius $outerTickRadius, Height ${drawScope.drawContext.size.height}, Width ${drawScope.drawContext.size.width}")
     for (i in 0..intervals) {
         val angle = startAngle + (i * angleStep)
         val angleRad = Math.toRadians(angle.toDouble())
         val cosAngle = cos(angleRad).toFloat()
         val sinAngle = sin(angleRad).toFloat()
-
-        val innerTickRadius = arcRadius - 20f
-        val outerTickRadius = arcRadius
 
         val startX = canvasWidth / 2 + innerTickRadius * cosAngle
         val startY = canvasHeight / 2 + innerTickRadius * sinAngle
@@ -48,7 +48,7 @@ fun drawSpeedometerTicks(
         )
 
         // Draw the number
-        val textRadius = innerTickRadius - 40f
+        val textRadius = innerTickRadius - 80f
         val textX = canvasWidth / 2 + textRadius * cosAngle
         val textY = canvasHeight / 2 + textRadius * sinAngle + paint.textSize / 2
 
