@@ -27,7 +27,7 @@ fun drawSpeedometerTicks(
     val middleTickMultiplier = 0.5f // To place the middle tick halfway between major ticks
     val middleStepTickWidth = 5f // Width for the bold middle tick
     val stepTickWidth = 8f // Width for the bold middle tick
-    val radiusBase = drawScope.drawContext.size.height * .43f
+    val radiusBase = canvasHeight * .43f
     val innerTickRadius = radiusBase + 40
     val outerTickRadius = radiusBase
     val middleTickRadius = innerTickRadius + 20 // Extend the middle tick a bit further
@@ -45,7 +45,7 @@ fun drawSpeedometerTicks(
 
         // Draw the tick mark
         drawScope.drawLine(
-            Color.Blue,
+            Color.Black,
             start = Offset(startX, startY),
             end = Offset(endX, endY),
             strokeWidth = stepTickWidth
@@ -77,7 +77,7 @@ fun drawSpeedometerTicks(
 
             // Draw the middle, bolder tick mark
             drawScope.drawLine(
-                Color.Blue,
+                Color.Black,
                 start = Offset(middleStartX, middleStartY),
                 end = Offset(middleEndX, middleEndY),
                 strokeWidth = middleStepTickWidth
