@@ -24,9 +24,13 @@ fun drawSpeedometerTicks(
     }
     val intervals = 12
     val angleStep = sweepAngle / intervals
+    val middleTickMultiplier = 0.5f // To place the middle tick halfway between major ticks
+    val boldTickWidth = 8f // Width for the bold middle tick
     val radiusBase = drawScope.drawContext.size.height * .43f
     val innerTickRadius = radiusBase + 40
     val outerTickRadius = radiusBase
+    val middleTickRadius = innerTickRadius + 20 // Extend the middle tick a bit further
+
     for (i in 0..intervals) {
         val angle = startAngle + (i * angleStep)
         val angleRad = Math.toRadians(angle.toDouble())
@@ -57,5 +61,26 @@ fun drawSpeedometerTicks(
             textY,
             paint
         )
+        // Only draw middle ticks between main ticks, not after the last main tick
+        if (i < intervals) {
+            // Middle tick
+            val middleAngle = angle + (angleStep * middleTickMultiplier)
+            val middleAngleRad = Math.toRadians(middleAngle.toDouble())
+            val middleCosAngle = cos(middleAngleRad).toFloat()
+            val middleSinAngle = sin(middleAngleRad).toFloat()
+
+            val middleStartX = canvasWidth / 2 + outerTickRadius * middleCosAngle
+            val middleStartY = canvasHeight / 2 + outerTickRadius * middleSinAngle
+            val middleEndX = canvasWidth / 2 + middleTickRadius * middleCosAngle
+            val middleEndY = canvasHeight / 2 + middleTickRadius * middleSinAngle
+
+            // Draw the middle, bolder tick mark
+            drawScope.drawLine(
+                Color.Blue,
+                start = Offset(middleStartX, middleStartY),
+                end = Offset(middleEndX, middleEndY),
+                strokeWidth = boldTickWidth
+            )
+        }
     }
 }
