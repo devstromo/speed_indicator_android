@@ -23,6 +23,8 @@ fun drawSpeedometerTicks(
     }
     val intervals = 12
     val angleStep = sweepAngle / intervals
+    val simpleTickMultiplier = .1f
+    val simpleTickStroke = 3f
     val middleTickMultiplier = 0.5f // To place the middle tick halfway between major ticks
     val middleStepTickWidth = 5f // Width for the bold middle tick
     val stepTickWidth = 8f // Width for the bold middle tick
@@ -83,6 +85,26 @@ fun drawSpeedometerTicks(
                 end = Offset(middleEndX, middleEndY),
                 strokeWidth = middleStepTickWidth
             )
+
+            // draw simple lines
+            for (j in 1..9) {
+                val simpleAngle = angle + (angleStep * simpleTickMultiplier * j)
+                val simpleAngleRad = Math.toRadians(simpleAngle.toDouble())
+                val singleCosAngle = cos(simpleAngleRad).toFloat()
+                val singleSinAngle = sin(simpleAngleRad).toFloat()
+                val singleStartX = canvasMiddleWidth + innerTickRadius * singleCosAngle
+                val singleStartY = canvasMiddleHeight + innerTickRadius * singleSinAngle
+                val singleEndX = canvasMiddleWidth + middleTickRadius * singleCosAngle
+                val singleEndY = canvasMiddleHeight + middleTickRadius * singleSinAngle
+
+                // Draw the middle
+                drawScope.drawLine(
+                    Color.Black,
+                    start = Offset(singleStartX, singleStartY),
+                    end = Offset(singleEndX, singleEndY),
+                    strokeWidth = simpleTickStroke
+                )
+            }
         }
     }
 }
