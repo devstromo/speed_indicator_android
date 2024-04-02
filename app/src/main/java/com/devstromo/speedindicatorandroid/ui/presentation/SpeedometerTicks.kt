@@ -53,7 +53,7 @@ fun drawSpeedometerTicks(
         )
 
         // Draw the number
-        val textRadius = innerTickRadius - 80f
+        val textRadius = innerTickRadius - 85f
         val textX = canvasMiddleWidth + textRadius * cosAngle
         val textY = canvasMiddleHeight + textRadius * sinAngle + paint.textSize / 2
 
