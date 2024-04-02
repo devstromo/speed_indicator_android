@@ -35,7 +35,7 @@ fun ExternalArc() {
             this,
             canvasWidth,
             canvasHeight,
-            arcRadius,
+            startAngle = 140f,
             sweepAngle = 260f,
         )
     }
