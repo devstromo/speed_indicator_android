@@ -30,6 +30,7 @@ fun drawSpeedometerTicks(
     val innerTickRadius = radiusBase + 40
     val outerTickRadius = radiusBase
     val middleTickRadius = innerTickRadius + 20 // Extend the middle tick a bit further
+    val canvasMiddleWidth = canvasWidth * .5f
 
     for (i in 0..intervals) {
         val angle = startAngle + (i * angleStep)
@@ -37,9 +38,9 @@ fun drawSpeedometerTicks(
         val cosAngle = cos(angleRad).toFloat()
         val sinAngle = sin(angleRad).toFloat()
 
-        val startX = canvasWidth / 2 + innerTickRadius * cosAngle
+        val startX = canvasMiddleWidth + innerTickRadius * cosAngle
         val startY = canvasHeight / 2 + innerTickRadius * sinAngle
-        val endX = canvasWidth / 2 + outerTickRadius * cosAngle
+        val endX = canvasMiddleWidth + outerTickRadius * cosAngle
         val endY = canvasHeight / 2 + outerTickRadius * sinAngle
 
         // Draw the tick mark
@@ -52,7 +53,7 @@ fun drawSpeedometerTicks(
 
         // Draw the number
         val textRadius = innerTickRadius - 80f
-        val textX = canvasWidth / 2 + textRadius * cosAngle
+        val textX = canvasMiddleWidth + textRadius * cosAngle
         val textY = canvasHeight / 2 + textRadius * sinAngle + paint.textSize / 2
 
         drawScope.drawContext.canvas.nativeCanvas.drawText(
@@ -69,9 +70,9 @@ fun drawSpeedometerTicks(
             val middleCosAngle = cos(middleAngleRad).toFloat()
             val middleSinAngle = sin(middleAngleRad).toFloat()
 
-            val middleStartX = canvasWidth / 2 + outerTickRadius * middleCosAngle
+            val middleStartX = canvasMiddleWidth + outerTickRadius * middleCosAngle
             val middleStartY = canvasHeight / 2 + outerTickRadius * middleSinAngle
-            val middleEndX = canvasWidth / 2 + middleTickRadius * middleCosAngle
+            val middleEndX = canvasMiddleWidth + middleTickRadius * middleCosAngle
             val middleEndY = canvasHeight / 2 + middleTickRadius * middleSinAngle
 
             // Draw the middle, bolder tick mark
