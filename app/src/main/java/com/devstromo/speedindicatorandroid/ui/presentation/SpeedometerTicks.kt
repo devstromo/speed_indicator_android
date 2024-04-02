@@ -12,7 +12,6 @@ fun drawSpeedometerTicks(
     drawScope: DrawScope,
     canvasWidth: Float,
     canvasHeight: Float,
-    arcRadius: Float,
     startAngle: Float,
     sweepAngle: Float,
 ) {
