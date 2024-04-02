@@ -31,6 +31,7 @@ fun drawSpeedometerTicks(
     val outerTickRadius = radiusBase
     val middleTickRadius = innerTickRadius + 20 // Extend the middle tick a bit further
     val canvasMiddleWidth = canvasWidth * .5f
+    val canvasMiddleHeight = canvasHeight * .5f
 
     for (i in 0..intervals) {
         val angle = startAngle + (i * angleStep)
@@ -39,9 +40,9 @@ fun drawSpeedometerTicks(
         val sinAngle = sin(angleRad).toFloat()
 
         val startX = canvasMiddleWidth + innerTickRadius * cosAngle
-        val startY = canvasHeight / 2 + innerTickRadius * sinAngle
+        val startY = canvasMiddleHeight + innerTickRadius * sinAngle
         val endX = canvasMiddleWidth + outerTickRadius * cosAngle
-        val endY = canvasHeight / 2 + outerTickRadius * sinAngle
+        val endY = canvasMiddleHeight + outerTickRadius * sinAngle
 
         // Draw the tick mark
         drawScope.drawLine(
@@ -54,7 +55,7 @@ fun drawSpeedometerTicks(
         // Draw the number
         val textRadius = innerTickRadius - 80f
         val textX = canvasMiddleWidth + textRadius * cosAngle
-        val textY = canvasHeight / 2 + textRadius * sinAngle + paint.textSize / 2
+        val textY = canvasMiddleHeight + textRadius * sinAngle + paint.textSize / 2
 
         drawScope.drawContext.canvas.nativeCanvas.drawText(
             "${i * 20}",
@@ -71,9 +72,9 @@ fun drawSpeedometerTicks(
             val middleSinAngle = sin(middleAngleRad).toFloat()
 
             val middleStartX = canvasMiddleWidth + outerTickRadius * middleCosAngle
-            val middleStartY = canvasHeight / 2 + outerTickRadius * middleSinAngle
+            val middleStartY = canvasMiddleHeight + outerTickRadius * middleSinAngle
             val middleEndX = canvasMiddleWidth + middleTickRadius * middleCosAngle
-            val middleEndY = canvasHeight / 2 + middleTickRadius * middleSinAngle
+            val middleEndY = canvasMiddleHeight + middleTickRadius * middleSinAngle
 
             // Draw the middle, bolder tick mark
             drawScope.drawLine(
