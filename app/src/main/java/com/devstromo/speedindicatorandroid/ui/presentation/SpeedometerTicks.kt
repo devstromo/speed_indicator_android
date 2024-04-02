@@ -69,7 +69,7 @@ fun drawSpeedometerTicks(
         if (i < intervals) {
             // draw internal lines
             for (j in 1..9) {
-                val tickRadius = if (j == 5) middleTickRadius else middleTickRadius + 5
+                val tickRadius = if (j == 5) middleTickRadius else middleTickRadius + 8
                 val simpleAngle = angle + (angleStep * simpleTickMultiplier * j)
                 val simpleAngleRad = Math.toRadians(simpleAngle.toDouble())
                 val singleCosAngle = cos(simpleAngleRad).toFloat()
