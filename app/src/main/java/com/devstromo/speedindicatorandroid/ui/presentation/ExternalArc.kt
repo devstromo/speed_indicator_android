@@ -10,6 +10,8 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import com.devstromo.speedindicatorandroid.config.END_ANGLE
+import com.devstromo.speedindicatorandroid.config.START_ANGLE
 
 @Composable
 fun ExternalArc() {
@@ -20,8 +22,8 @@ fun ExternalArc() {
 
         drawArc(
             color = Color.Red,
-            startAngle = 140f, //start angle is always in clockwise direction
-            sweepAngle = 260f, // angle formed between the start angle
+            startAngle = START_ANGLE, //start angle is always in clockwise direction
+            sweepAngle = END_ANGLE, // angle formed between the start angle
             useCenter = false,
             size = Size(arcRadius, arcRadius),
             topLeft = Offset(
@@ -35,8 +37,8 @@ fun ExternalArc() {
             this,
             canvasWidth,
             canvasHeight,
-            startAngle = 140f,
-            sweepAngle = 260f,
+            startAngle = START_ANGLE,
+            sweepAngle = END_ANGLE,
         )
     }
 
