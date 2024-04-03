@@ -33,9 +33,7 @@ fun SpeedIndicator() {
         Box(
             modifier = Modifier
                 .align(Alignment.Center)
-                .border(
-                    BorderStroke(1.dp, Color.Red)
-                )
+                .padding(start = 100.dp)
                 .graphicsLayer {
                     this.transformOrigin = TransformOrigin(0f, 0f)
                     this.rotationZ = sliderValue
@@ -54,8 +52,7 @@ fun SpeedIndicator() {
             onValueChange = {
                 sliderValue = it
             },
-            steps = 220,
-            valueRange = 0f..220f,
+            valueRange = 0f..240f,
             enabled = true
         )
     }
