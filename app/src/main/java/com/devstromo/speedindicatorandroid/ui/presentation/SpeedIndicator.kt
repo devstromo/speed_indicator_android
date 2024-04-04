@@ -4,12 +4,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -25,9 +23,6 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun SpeedIndicator() {
-    var sliderValue by remember {
-        mutableFloatStateOf(0f)
-    }
     var speedValue by remember {
         mutableIntStateOf(0)
     }
@@ -63,17 +58,6 @@ fun SpeedIndicator() {
         Text(
             text = speedValue.toString(),
             modifier = Modifier.align(Alignment.Center)
-        )
-        Slider(
-            modifier = Modifier
-                .padding(10.dp)
-                .align(Alignment.BottomCenter),
-            value = sliderValue,
-            onValueChange = {
-                sliderValue = it
-            },
-            valueRange = 0f..240f,
-            enabled = true
         )
     }
 }
