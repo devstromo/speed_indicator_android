@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
@@ -27,12 +28,17 @@ fun SpeedIndicator() {
     var sliderValue by remember {
         mutableFloatStateOf(0f)
     }
+    var speedValue by remember {
+        mutableIntStateOf(0)
+    }
     val coroutineScope = rememberCoroutineScope()
     val numberFlow = generateNumbersEveryFiveSeconds()
     LaunchedEffect(Unit) {
         coroutineScope.launch(Dispatchers.Default) {
             numberFlow.collect { randomNumber ->
+                speedValue = randomNumber
                 println("Generated number 2: $randomNumber")
+                println("Speed value: $speedValue")
             }
         }
     }
