@@ -31,7 +31,10 @@ class MainActivity : ComponentActivity() {
 
 
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    device = "spec:parent=pixel_5,orientation=landscape"
+)
 @Composable
 fun SpeedometerPreview() {
     SpeedIndicatorAndroidTheme {
