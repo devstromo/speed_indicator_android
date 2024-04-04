@@ -53,7 +53,7 @@ fun SpeedIndicator() {
                 .graphicsLayer {
                     this.transformOrigin = TransformOrigin(0f, 0f)
                     this.rotationZ = mapValueToRange(
-                        originalValue = sliderValue,
+                        originalValue = speedValue.toFloat(),
                         originalMin = 0f, originalMax = 240f,
                         newMin = 140f, newMax = 400f
                     )
@@ -61,7 +61,7 @@ fun SpeedIndicator() {
             Needle()
         }
         Text(
-            text = sliderValue.toString(),
+            text = speedValue.toString(),
             modifier = Modifier.align(Alignment.Center)
         )
         Slider(
