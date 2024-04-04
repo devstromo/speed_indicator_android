@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
-import com.devstromo.speedindicatorandroid.ui.presentation.util.startNumberGenerator
+import com.devstromo.speedindicatorandroid.ui.presentation.util.generateNumbersEveryFiveSeconds
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -28,9 +28,12 @@ fun SpeedIndicator() {
         mutableFloatStateOf(0f)
     }
     val coroutineScope = rememberCoroutineScope()
+    val numberFlow = generateNumbersEveryFiveSeconds()
     LaunchedEffect(Unit) {
         coroutineScope.launch(Dispatchers.Default) {
-            this.startNumberGenerator()
+            numberFlow.collect { randomNumber ->
+                println("Generated number 2: $randomNumber")
+            }
         }
     }
     BoxWithConstraints(
