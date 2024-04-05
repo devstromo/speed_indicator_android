@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
 import com.devstromo.speedindicatorandroid.ui.presentation.util.generateNumbersEveryFiveSeconds
 import kotlinx.coroutines.Dispatchers
@@ -32,8 +33,8 @@ fun SpeedIndicator() {
     val animatedSpeedValue by animateIntAsState(
         targetValue = speedValue,
         animationSpec = tween(
-            durationMillis = 1000, // Specify the duration of the animation
-            easing = LinearOutSlowInEasing // This is optional, there are different easings you can use
+            durationMillis = 1000,
+            easing = LinearOutSlowInEasing
         ), label = ""
     )
     val coroutineScope = rememberCoroutineScope()
@@ -45,14 +46,18 @@ fun SpeedIndicator() {
             }
         }
     }
+    val configuration = LocalConfiguration.current
+
+    val middleScreenWidth = (configuration.screenHeightDp * .40).dp
     BoxWithConstraints(
         modifier = Modifier.fillMaxSize()
     ) {
+
         ExternalArc()
         Box(
             modifier = Modifier
                 .align(Alignment.Center)
-                .padding(start = 100.dp)
+                .padding(start = middleScreenWidth)
                 .graphicsLayer {
                     this.transformOrigin = TransformOrigin(0f, 0f)
                     this.rotationZ = mapValueToRange(
