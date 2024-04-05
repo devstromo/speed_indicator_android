@@ -67,7 +67,7 @@ fun SpeedIndicator() {
         }
         Text(
             text = speedValue.toString(),
-            modifier = Modifier.align(Alignment.Center)
+            modifier = Modifier.align(Alignment.BottomCenter)
         )
     }
 }
