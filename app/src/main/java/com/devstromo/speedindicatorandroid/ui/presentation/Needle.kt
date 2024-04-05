@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 fun Needle() {
     Box(
         modifier = Modifier
-            .size(width = 100.dp, height = 10.dp)
-            .background(color = Color.Red, shape = RoundedCornerShape(10.dp))
+            .size(width = 130.dp, height = 5.dp)
+            .background(color = Color.Magenta.copy(alpha = .5f), shape = RoundedCornerShape(5.dp))
     )
 }
