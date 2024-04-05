@@ -42,8 +42,6 @@ fun SpeedIndicator() {
         coroutineScope.launch(Dispatchers.Default) {
             numberFlow.collect { randomNumber ->
                 speedValue = randomNumber
-                println("Generated number 2: $randomNumber")
-                println("Speed value: $speedValue")
             }
         }
     }
