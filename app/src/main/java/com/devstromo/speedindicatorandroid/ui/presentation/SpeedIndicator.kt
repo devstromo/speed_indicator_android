@@ -1,5 +1,8 @@
 package com.devstromo.speedindicatorandroid.ui.presentation
 
+import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.animateIntAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,6 +29,13 @@ fun SpeedIndicator() {
     var speedValue by remember {
         mutableIntStateOf(0)
     }
+    val animatedSpeedValue by animateIntAsState(
+        targetValue = speedValue,
+        animationSpec = tween(
+            durationMillis = 1000, // Specify the duration of the animation
+            easing = LinearOutSlowInEasing // This is optional, there are different easings you can use
+        ), label = ""
+    )
     val coroutineScope = rememberCoroutineScope()
     val numberFlow = generateNumbersEveryFiveSeconds()
     LaunchedEffect(Unit) {
@@ -48,7 +58,7 @@ fun SpeedIndicator() {
                 .graphicsLayer {
                     this.transformOrigin = TransformOrigin(0f, 0f)
                     this.rotationZ = mapValueToRange(
-                        originalValue = speedValue.toFloat(),
+                        originalValue = animatedSpeedValue.toFloat(),
                         originalMin = 0f, originalMax = 240f,
                         newMin = 140f, newMax = 400f
                     )
