@@ -49,6 +49,7 @@ fun SpeedIndicator() {
     val configuration = LocalConfiguration.current
 
     val middleScreenWidth = (configuration.screenHeightDp * .40).dp
+    val middleScreenHeight = (configuration.screenHeightDp * .40).dp
     BoxWithConstraints(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -70,7 +71,9 @@ fun SpeedIndicator() {
         }
         AnimatedCounter(
             count = speedValue,
-            modifier = Modifier.align(Alignment.BottomCenter)
+            modifier = Modifier
+                .padding(top = middleScreenHeight)
+                .align(Alignment.Center)
         )
     }
 }
