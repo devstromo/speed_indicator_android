@@ -68,8 +68,8 @@ fun SpeedIndicator() {
                 }) {
             Needle()
         }
-        Text(
-            text = speedValue.toString(),
+        AnimatedCounter(
+            count = speedValue,
             modifier = Modifier.align(Alignment.BottomCenter)
         )
     }
