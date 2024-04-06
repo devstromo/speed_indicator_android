@@ -15,13 +15,12 @@ val provider = GoogleFont.Provider(
     certificates = R.array.com_google_android_gms_fonts_certs
 )
 
-val fontName = GoogleFont("Montserrat")
+val fontName = GoogleFont("Raleway")
 
 val fontFamily = FontFamily(
-    Font(
-        googleFont = fontName,
-        fontProvider = provider
-    )
+    Font(googleFont = fontName, fontProvider = provider),
+    Font(googleFont = fontName, fontProvider = provider, weight = FontWeight.Medium),
+    Font(googleFont = fontName, fontProvider = provider, weight = FontWeight.Bold)
 )
 
 // Set of Material typography styles to start with

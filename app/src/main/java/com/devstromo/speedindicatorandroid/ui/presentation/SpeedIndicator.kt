@@ -20,8 +20,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.devstromo.speedindicatorandroid.ui.presentation.util.generateNumbersEveryFiveSeconds
+import com.devstromo.speedindicatorandroid.ui.theme.fontFamily
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -73,7 +77,12 @@ fun SpeedIndicator() {
             count = speedValue,
             modifier = Modifier
                 .padding(top = middleScreenHeight)
-                .align(Alignment.Center)
+                .align(Alignment.Center),
+            style = TextStyle(
+                fontFamily = fontFamily,
+                fontSize = 32.sp,
+                fontWeight = FontWeight.Bold
+            )
         )
     }
 }
